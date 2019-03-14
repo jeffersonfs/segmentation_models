@@ -49,7 +49,7 @@ def build_psp(backbone,
     x = Conv2D(classes, (3,3), padding='same', name='final_conv')(x)
 
     if final_interpolation == 'bilinear':
-        x = ResizeImage(to_tuple(last_upsampling_factor))(x)
+        x = ResizeImage(to_tuple(last_upsampling_factor), interpolation='bilinear')(x)
     elif final_interpolation == 'duc':
         x = DUC(to_tuple(last_upsampling_factor))(x)
     else:
