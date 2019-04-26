@@ -3,7 +3,7 @@ import pytest
 import random
 import six
 import numpy as np
-import keras.backend as K
+from tensorflow.python.keras import backend as K
 
 from segmentation_models import Unet
 from segmentation_models import Linknet

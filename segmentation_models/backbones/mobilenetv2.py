@@ -68,10 +68,10 @@ import os
 import warnings
 import numpy as np
 
-from keras import backend
-from keras import layers
-from keras import models
-from keras import utils as keras_utils
+from tensorflow.python.keras import backend
+from tensorflow.python.keras import layers
+from tensorflow.python.keras import models
+from tensorflow.python.keras import utils as keras_utils
 
 from keras_applications import correct_pad
 from keras_applications import imagenet_utils

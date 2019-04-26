@@ -1,7 +1,7 @@
-from keras.engine import Layer
-from keras.engine import InputSpec
-from keras.utils import conv_utils
-from keras.legacy import interfaces
+from tensorflow.python.keras.engine import Layer
+from tensorflow.python.keras.engine import InputSpec
+from tensorflow.python.keras.utils import conv_utils
+# from tensorflow.python.keras.legacy import interfaces
 from keras.utils.generic_utils import get_custom_objects
 
 from .functions import resize_images
@@ -41,7 +41,7 @@ class ResizeImage(Layer):
             `(batch, channels, upsampled_rows, upsampled_cols)`
     """
 
-    @interfaces.legacy_upsampling2d_support
+    # @interfaces.legacy_upsampling2d_support
     def __init__(self, factor=(2, 2), data_format='channels_last', interpolation='nearest', **kwargs):
         super(ResizeImage, self).__init__(**kwargs)
         self.data_format = data_format

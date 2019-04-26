@@ -1,6 +1,6 @@
 import pytest
 import numpy as np
-import keras.backend as K
+from tensorflow.python.keras import backend as K
 
 from segmentation_models.metrics import iou_score, f_score
 from segmentation_models.losses import jaccard_loss, dice_loss

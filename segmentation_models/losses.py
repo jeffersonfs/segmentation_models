@@ -1,7 +1,7 @@
-import keras.backend as K
-from keras.losses import binary_crossentropy
-from keras.losses import categorical_crossentropy
-from keras.utils.generic_utils import get_custom_objects
+from tensorflow.python.keras import backend as K
+from tensorflow.python.keras.losses import binary_crossentropy
+from tensorflow.python.keras.losses import categorical_crossentropy
+from tensorflow.python.keras.utils.generic_utils import get_custom_objects
 
 from .metrics import jaccard_score, f_score
 

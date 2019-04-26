@@ -1,5 +1,5 @@
-import keras.backend as K
-from keras.utils.generic_utils import get_custom_objects
+from tensorflow.python.keras import backend as K
+from tensorflow.python.keras.utils.generic_utils import get_custom_objects
 
 __all__ = [
     'iou_score', 'jaccard_score', 'f1_score', 'f2_score', 'dice_score',

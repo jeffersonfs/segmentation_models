@@ -3,7 +3,7 @@ import numpy as np
 # import keras.backend.tensorflow_backend as KTF
 import keras.backend as K
 # import tensorflow as tf
-from keras import regularizers
+from tensorflow.python.keras import regularizers
 
 from segmentation_models.utils import set_regularization
 from segmentation_models import Unet

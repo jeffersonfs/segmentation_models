@@ -49,10 +49,10 @@ from __future__ import division
 import os
 import warnings
 
-from keras import backend
-from keras import layers
-from keras import models
-from keras import utils as keras_utils
+from tensorflow.python.keras import backend
+from tensorflow.python.keras import layers
+from tensorflow.python.keras import models
+from tensorflow.python.keras import utils as keras_utils
 
 from keras_applications import imagenet_utils
 from keras_applications.imagenet_utils import _obtain_input_shape

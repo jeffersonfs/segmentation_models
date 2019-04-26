@@ -2,8 +2,8 @@
 import warnings
 import numpy as np
 from functools import wraps
-from keras.layers import BatchNormalization
-from keras.models import model_from_json
+from tensorflow.python.keras.layers import BatchNormalization
+from tensorflow.python.keras.models import model_from_json
 
 
 def legacy_support(kwargs_map):

@@ -13,29 +13,26 @@ from __future__ import print_function
 import os
 import warnings
 
-from keras.models import Model
-from keras import layers
-from keras.layers import Activation
-from keras.layers import Dense
-from keras.layers import Input
-from keras.layers import BatchNormalization
-from keras.layers import Conv2D
-from keras.layers import MaxPooling2D
-from keras.layers import AveragePooling2D
-from keras.layers import GlobalAveragePooling2D
-from keras.layers import GlobalMaxPooling2D
-from keras.engine.topology import get_source_inputs
-from keras.utils.data_utils import get_file
-from keras import backend as K
-from keras.applications import imagenet_utils
+from tensorflow.python.keras.models import Model
+from tensorflow.python.keras import layers
+from tensorflow.python.keras.layers import Activation
+from tensorflow.python.keras.layers import Dense
+from tensorflow.python.keras.layers import Input
+from tensorflow.python.keras.layers import BatchNormalization
+from tensorflow.python.keras.layers import Conv2D
+from tensorflow.python.keras.layers import MaxPooling2D
+from tensorflow.python.keras.layers import AveragePooling2D
+from tensorflow.python.keras.layers import GlobalAveragePooling2D
+from tensorflow.python.keras.layers import GlobalMaxPooling2D
+from tensorflow.python.keras.utils import get_source_inputs
+from tensorflow.python.keras.utils.data_utils import get_file
+from tensorflow.python.keras import backend as K
+from tensorflow.python.keras.applications import imagenet_utils
 
-import keras
+from tensorflow.python import keras
 from distutils.version import StrictVersion
 
-if StrictVersion(keras.__version__) < StrictVersion('2.2.0'):
-    from keras.applications.imagenet_utils import _obtain_input_shape
-else:
-    from keras_applications.imagenet_utils import _obtain_input_shape
+from keras_applications.imagenet_utils import _obtain_input_shape
 
 
 WEIGHTS_PATH = 'https://github.com/fchollet/deep-learning-models/releases/download/v0.5/inception_v3_weights_tf_dim_ordering_tf_kernels.h5'
