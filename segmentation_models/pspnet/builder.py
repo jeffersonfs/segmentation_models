@@ -56,7 +56,7 @@ def build_psp(backbone,
         raise ValueError('Unsupported interpolation type {}. '.format(final_interpolation) +
                          'Use `duc` or `bilinear`.')
 
-    x = Activation(activation, name=activation)(x)
+    x = Activation(activation, name="pspnet_output")(x)
 
     model = Model(input, x)
 
