@@ -46,7 +46,7 @@ def build_psp(backbone,
     if dropout is not None:
         x = SpatialDropout2D(dropout)(x)
 
-    x = Conv2D(classes, (3,3), padding='same', name='final_conv')(x)
+    x = Conv2D(classes, (3, 3), padding='same', name='final_conv')(x)
 
     if final_interpolation == 'bilinear':
         x = ResizeImage(to_tuple(last_upsampling_factor), interpolation='bilinear')(x)
