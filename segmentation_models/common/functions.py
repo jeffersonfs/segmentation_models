@@ -2,6 +2,25 @@ import numpy as np
 import tensorflow as tf
 
 
+def nearest_upsampling(data, scale):
+    """ Nearest neighbor upsampling implementation.
+  Args:
+    data: A float32 tensor of size [batch, height_in, width_in, channels].
+    scale: An integer multiple to scale resolution of input data.
+  Returns:
+    data_up: A float32 tensor of size
+      [batch, height_in*scale, width_in*scale, channels].
+  """
+    with tf.name_scope('nearest_upsampling'):
+        bs, h, w, c = data.get_shape().as_list()
+        bs = -1 if bs is None else bs
+        # Use reshape to quickly upsample the input.  The nearest pixel is selected
+        # implicitly via broadcasting.
+        data = tf.reshape(data, [bs, h, 1, w, 1, c]) * tf.ones(
+            [1, 1, scale, 1, scale, 1], dtype=data.dtype)
+        return tf.reshape(data, [bs, h * scale, w * scale, c])
+
+
 def transpose_shape(shape, target_format, spatial_axes):
     """Converts a tuple or a list to the correct `data_format`.
     It does so by switching the positions of its elements.
@@ -93,7 +112,7 @@ def resize_images(x,
     if data_format == 'channels_first':
         x = permute_dimensions(x, [0, 2, 3, 1])
     if interpolation == 'nearest':
-        x = tf.image.resize_nearest_neighbor(x, new_shape)
+        x = tf.image.resize_bilinear(x, new_shape, align_corners=True)
     elif interpolation == 'bilinear':
         x = tf.image.resize_bilinear(x, new_shape, align_corners=True)
     else:
