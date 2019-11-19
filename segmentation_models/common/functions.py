@@ -112,9 +112,9 @@ def resize_images(x,
     if data_format == 'channels_first':
         x = permute_dimensions(x, [0, 2, 3, 1])
     if interpolation == 'nearest':
-        x = tf.image.resize_bilinear(x, new_shape, align_corners=True)
+        x = tf.image.resize(x, new_shape, method=tf.image.ResizeMethod.BILINEAR)
     elif interpolation == 'bilinear':
-        x = tf.image.resize_bilinear(x, new_shape, align_corners=True)
+        x = tf.image.resize(x, new_shape, method=tf.image.ResizeMethod.BILINEAR)
     else:
         raise ValueError('interpolation should be one '
                          'of "nearest" or "bilinear".')
