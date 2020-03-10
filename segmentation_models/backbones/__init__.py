@@ -1,5 +1,5 @@
-from classification_models import Classifiers
-from classification_models import resnext
+from classification_models.tfkeras import Classifiers
+# from classification_models.tfkeras import resnext
 
 from . import inception_resnet_v2 as irv2
 from . import inception_v3 as iv3
@@ -10,8 +10,8 @@ from . import mobilenetv2 as mbn2
 Classifiers._models.update({
     'inceptionresnetv2': [irv2.InceptionResNetV2, irv2.preprocess_input],
     'inceptionv3': [iv3.InceptionV3, iv3.preprocess_input],
-    'resnext50': [resnext.ResNeXt50, resnext.models.preprocess_input],
-    'resnext101': [resnext.ResNeXt101, resnext.models.preprocess_input],
+     # 'resnext50': [resnext.ResNeXt50, resnext.models.preprocess_input],
+     # 'resnext101': [resnext.ResNeXt101, resnext.models.preprocess_input],
     'mobilenet': [mbn.MobileNet, mbn.preprocess_input],
     'mobilenetv2': [mbn2.MobileNetV2, mbn2.preprocess_input],
 })

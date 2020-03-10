@@ -34,7 +34,7 @@ def build_psp(backbone,
     input = backbone.input
 
     x = extract_outputs(backbone, [psp_layer])[0]
-
+    
     x = PyramidPoolingModule(
         conv_filters=conv_filters,
         pooling_type=pooling_type,

@@ -4,7 +4,10 @@ from tensorflow.python.keras.layers import AveragePooling2D
 from tensorflow.python.keras.layers import Concatenate
 from tensorflow.python.keras.layers import Permute
 from tensorflow.python.keras.layers import Reshape
+from tensorflow.python.keras.layers import ZeroPadding2D
 from tensorflow.python.keras.backend import int_shape
+
+import tensorflow as tf
 
 from ..common import Conv2DBlock
 from ..common import ResizeImage
@@ -34,16 +37,24 @@ def InterpBlock(level, feature_map_shape,
         # by simply dividing the current factor by the kernel or stride factor
         # The final feature map sizes are 1x1, 2x2, 3x3, and 6x6. We round to the closest integer
         pool_size = [int(np.round(feature_map_shape[0] / level)),
-                       int(np.round(feature_map_shape[1] / level))]
+                        int(np.round(feature_map_shape[1] / level))]
+        
+        # pool_size = [ feature_map_shape[0] // level, feature_map_shape[0] // level]
+        
+        # Trigger for even sizes
+        # pool_size = [s if s % 2 == 0 else s + 1 for s in  pool_size]
+        
         strides = pool_size
 
         x = Pool2D(pool_size, strides=strides, padding=pool_padding)(input_tensor)
+
         x = Conv2DBlock(conv_filters,
                         kernel_size=conv_kernel_size,
                         padding=conv_padding,
                         use_batchnorm=use_batchnorm,
                         activation=activation,
                         name='level{}'.format(level))(x)
+        
         x = ResizeImage(strides, interpolation=interpolation)(x)
         return x
     return layer
