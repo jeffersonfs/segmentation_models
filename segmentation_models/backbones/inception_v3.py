@@ -24,7 +24,7 @@ from tensorflow.python.keras.layers import MaxPooling2D
 from tensorflow.python.keras.layers import AveragePooling2D
 from tensorflow.python.keras.layers import GlobalAveragePooling2D
 from tensorflow.python.keras.layers import GlobalMaxPooling2D
-from tensorflow.python.keras.utils import get_source_inputs
+from tensorflow.keras.utils import get_source_inputs
 from tensorflow.python.keras.utils.data_utils import get_file
 from tensorflow.python.keras import backend as K
 from tensorflow.python.keras.applications import imagenet_utils
